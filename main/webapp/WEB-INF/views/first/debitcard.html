@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debit Information</title>
+    <style>
+        body {
+            background-color: seashell;
+            color: darkslategrey;
+            font-size: 2rem;
+        }
+
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            background-color: darksalmon;
+            color: white;
+            font-size: 2rem;
+        }
+
+        input[type=submit] {
+            width: 20em;
+            height: 2em;
+        }
+    </style>
+</head>
+<body>
+<form th:method="POST" th:action="@{/debitcard}" th:object="${card}">
+    <label for="cardholderFirstName">Card Holder First Name</label>
+    <input th:name="cardholderFirstName"   type="text" id="cardholderFirstName"/>
+    <br>
+
+    <label for="cardholderLastName">Card Holder Last Name</label>
+    <input th:name="cardholderLastName" type="text" id="cardholderLastName"/>
+    <br>
+
+    <label for="term">Card Expiry Date</label>
+    <input th:name="term" type="text" id="term"/>
+    <br>
+
+    <input type="submit" name="submit" value="Submit"/>
+</form>
+
+</body>
+</html>

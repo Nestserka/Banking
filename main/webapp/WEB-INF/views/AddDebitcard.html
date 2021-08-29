@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Debit Card</title>
+    <style>
+        table {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+            text-align: left;
+            border-collapse: separate;
+            border-spacing: 5px;
+            background: #ECE9E0;
+            color: #656665;
+            border: 16px solid #ECE9E0;
+            border-radius: 20px;
+        }
+        th {
+            font-size: 18px;
+            padding: 10px;
+        }
+        td {
+            background: #F5D7BF;
+            padding: 10px;
+        }
+        .link { font-size: 20px; text-decoration-color: indianred; }
+
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> Surnam </th>
+        <th> Expiratation date </th>
+        <th> Card ccv</th>
+        <th> Card Number </th>
+        <th> DATE </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="card : ${cardlist}">
+        <td><span th:text="${card.cardholderFirstName}">  </span></td>
+        <td><span th:text="${card.cardholderLastName}">  </span></td>
+        <td><span th:text="${card.term}">  </span></td>
+        <td><span th:text="${card.cvv}">  </span></td>
+        <td><span th:text="${card.number}">  </span></td>
+        <td><span th:text="${#dates.format(card.startDate, 'dd-MM-yyyy')}">  </span></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/debitcard" class="link">Add new card</a>
+
+
+</body>
+</html>

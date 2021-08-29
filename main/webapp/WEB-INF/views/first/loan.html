@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Information</title>
+    <style>
+        body {
+            background-color: seashell;
+            color: darkslategrey;
+            font-size: 2rem;
+        }
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            background-color: darksalmon;
+            color: white;
+            font-size: 2rem;
+        }
+        input[type=submit] {
+            width: 20em;  height: 2em;
+        }
+    </style>
+</head>
+<body>
+
+
+<form th:method="POST" th:action="@{/loan}" th:object="${loan}">
+    <label for="amount">Credit Amount</label>
+    <input th:name="amount" type="text" id="amount"/>
+    <br>
+
+    <label for="interest"> Interest amount </label>
+    <input th:name="interest"  type="text" id="interest"/>
+    <br>
+
+    <label for="term"> Terms </label>
+    <input th:name="term" type="text" id="term"/>
+    <br>
+
+    <label for="description"> Comment </label>
+    <input name="description" type="text" id="description"/>
+
+    <input type="submit" name="submit" value="Submit"/>
+</form>
+
+</body>
+</html>

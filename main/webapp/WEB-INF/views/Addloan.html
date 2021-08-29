@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Loan Information </title>
+  <style>
+    table {
+      font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+      text-align: left;
+      border-collapse: separate;
+      border-spacing: 5px;
+      background: #ECE9E0;
+      color: #656665;
+      border: 16px solid #ECE9E0;
+      border-radius: 20px;
+    }
+    th {
+      font-size: 18px;
+      padding: 10px;
+    }
+    td {
+      background: #F5D7BF;
+      padding: 10px;
+    }
+    .link { font-size: 20px; text-decoration-color: indianred; }
+
+  </style>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th> Amount </th>
+    <th> Interest </th>
+    <th> Term </th>
+    <th> Monthly Payment </th>
+    <th> Overpayment Amount</th>
+    <th> Start Date </th>
+    <th> Description  </th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="loan : ${loanlist}">
+    <td><span th:text="${loan.amount}">  </span></td>
+    <td><span th:text="${loan.interest} + '%' ">  </span></td>
+    <td><span th:text="${loan.term}">  </span></td>
+    <td><span th:text="${loan.monthlyPayment}">  </span></td>
+    <td><span th:text="${loan.overpaymentAmount}">  </span></td>
+    <td><span th:text="${#dates.format(loan.startDate, 'dd-MM-yyyy')}"> </span></td>
+    <td><span th:text="${loan.description}">  </span></td>
+  </tr>
+  </tbody>
+</table>
+
+
+<a href="/loan" class="link">Add new card</a>
+
+
+</body>
+</html>
